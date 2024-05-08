@@ -13,16 +13,7 @@ def run_simulation(env, controller, references, num_steps, tau):
             reference = step_response[0][1]
         time_values.append(t * tau)
         action = controller.control(state, user_reference)
-        step_response =  env.step(action) # simulate one step of the PMSM
-
-#       ???????????????????????????????
-#        (state, reference), reward, done, terminated = step_response[0]
-
-        state = step_response[0][0]
-        reference = step_response[0][1]
-        rewards = step_response[1]
-        terminated = step_response[2]
-
+        (state, reference), reward, terminated, done, _ = env.step(action)  # simulate one step of the PMSM
         all_states.append(state)
 
     return time_values, all_states
