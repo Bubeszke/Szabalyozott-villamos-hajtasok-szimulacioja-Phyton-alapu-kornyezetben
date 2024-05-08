@@ -1,0 +1,15 @@
+Parameter dictionary entries:
+    - :math:`a / Nm`: Constant Load Torque coefficient (for modeling static friction)
+    - :math:`b / (Nm s)`: Linear Load Torque coefficient (for modeling sliding friction)
+    - :math:`c / (Nm s^2)`: Quadratic Load Torque coefficient (for modeling air resistances)
+    - :math:`j_load / (kg m^2)` : Moment of inertia of the mechanical system.
+
+
+"load": {
+  "type": "PolynomialStaticLoad",
+  "load_parameters": {
+    "a": 0.0,
+    "b": 0.0,
+    "c": 0.0,
+    "j_load": 0.001
+  }

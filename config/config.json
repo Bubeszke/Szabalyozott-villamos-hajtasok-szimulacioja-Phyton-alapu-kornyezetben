@@ -1,0 +1,22 @@
+{
+  "env_id": "Cont-CC-PMSM-v0",
+  "tau": 1e-5,
+  "num_steps": 6000,
+  "motor_parameters": {
+    "p": 3,
+    "r_s": 0.017932,
+    "l_d": 0.00037,
+    "l_q": 0.0012,
+    "psi_p": 0.06565
+  },
+  "load": {
+    "type": "ConstantSpeedLoad",
+    "load_parameters": {
+      "omega_fixed": 0.0
+    }
+  },
+  "reference": {
+    "D": 0.0,
+    "Q": 1.0
+  }
+}
