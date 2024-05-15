@@ -9,7 +9,15 @@ Parameter dictionary entries:
   "type": "PolynomialStaticLoad",
   "load_parameters": {
     "a": 0.0,
-    "b": 0.0,
-    "c": 0.0,
+    "b": 0.01,
+    "c": 0.001,
     "j_load": 0.001
   }
+},
+
+"load": {
+  "type": "ConstantSpeedLoad",
+  "load_parameters": {
+    "omega_fixed": 0.0
+  }
+},

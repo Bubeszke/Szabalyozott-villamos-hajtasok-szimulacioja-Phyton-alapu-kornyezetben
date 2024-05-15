@@ -4,5 +4,4 @@ def initialize_references(config):
     # Want dynamic?
     # ...
 
-
     return references
