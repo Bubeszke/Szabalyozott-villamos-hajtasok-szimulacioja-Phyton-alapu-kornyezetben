@@ -1,0 +1,7 @@
+-> Find the root casue of the stability loss
+-> Implement load into the diff Equations
+-> Implement limits
+-> Find a good cost function with penalties
+-> Real life motor?
+-> Run tests and find - prediction horizont optimal value
+                      - tau optimal value
