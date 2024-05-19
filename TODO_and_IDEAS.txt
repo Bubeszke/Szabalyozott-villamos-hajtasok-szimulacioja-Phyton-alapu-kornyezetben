@@ -1,7 +1,28 @@
 -> Find the root casue of the stability loss
+    -> limit multiplication is expected?
+    -> Nominális értékek (-1, 1 között) 
+
 -> Implement load into the diff Equations
 -> Implement limits
+
 -> Find a good cost function with penalties
+
 -> Real life motor?
--> Run tests and find - prediction horizont optimal value
+-> Run tests and find - prediction horizont optimal value 2 should be enough
                       - tau optimal value
+
+
+-> FOCUS omega fixed stable system.
+
+
+
+TODO:
+-> penalties for measuremnt?
+
+-> EPSILONCSuszas?
+    -> motor sajat koordinatarendszere lekerheto, mukodik
+        -> utanajarni h mire pontosan miert van szukseg
+            -> lambda fugv
+            -> volt limitations in lateK
+
+-> fix visualization range

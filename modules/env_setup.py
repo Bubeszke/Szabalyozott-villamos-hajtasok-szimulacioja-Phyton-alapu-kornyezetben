@@ -3,7 +3,7 @@ from gym_electric_motor.physical_systems import ConstantSpeedLoad, PolynomialSta
 from gym_electric_motor.reference_generators import WienerProcessReferenceGenerator
 
 def initialize_environment(config):
-    motor_parameters = config.get("motor_parameters", {})
+    motor = config.get("motor", {})
     env_id = config["env_id"]
     load_config = config.get("load", {})
 
@@ -14,16 +14,13 @@ def initialize_environment(config):
     if load_type == "ConstantSpeedLoad":
         if "omega_fixed" not in load_parameters:
             raise ValueError("omega_fixed must be specified for ConstantSpeedLoad")
-        load = ConstantSpeedLoad(omega_fixed=(load_parameters["omega_fixed"] * 2 * 3.1416 / 60))
-    elif load_type == "PolynomialStaticLoad":
-        if not load_parameters:
-            raise ValueError("Load parameters must be specified for PolynomialStaticLoad")
-        load = PolynomialStaticLoad(load_parameter=load_parameters, limits=dict(omega=150.0))
+        load = ConstantSpeedLoad(omega_fixed=(load_parameters["omega_fixed"]))
+    else:
+        raise ValueError("Load type must be specified for ConstantSpeedLoad")
 
     env = gem.make(
         env_id,
-        motor_parameter=motor_parameters,
-        reference_generator=WienerProcessReferenceGenerator(reference_state='i_sd', sigma_range=(0.001, 0.01)),
+        motor=motor,
         load=load
     )
 

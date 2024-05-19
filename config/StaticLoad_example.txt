@@ -18,6 +18,6 @@ Parameter dictionary entries:
 "load": {
   "type": "ConstantSpeedLoad",
   "load_parameters": {
-    "omega_fixed": 0.0
+    "omega_fixed": 0.0 rad/s
   }
 },

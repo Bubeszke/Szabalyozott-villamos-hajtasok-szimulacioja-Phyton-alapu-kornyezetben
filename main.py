@@ -13,11 +13,13 @@ if(ERRORHANDLING_ON):
         print('CONFIG LOADED')
 
         env = initialize_environment(config)
+        tau = env.physical_system.tau
+        print(tau)
         if not env:
             raise ValueError("Failed to initialize the environment")
         print('initialize_environment')
 
-        Controller = MPC_Controller(env, config.get('tau'))
+        Controller = MPC_Controller(env, tau)
         if not Controller:
             raise ValueError("Failed to initialize the controller")
         print('MPC_Controller')
@@ -27,7 +29,7 @@ if(ERRORHANDLING_ON):
             raise ValueError("Failed to initialize references")
         print('initialize_references')
 
-        time_values, all_states = run_simulation(env, Controller, references, config['num_steps'], config['tau'])
+        time_values, all_states = run_simulation(env, Controller, references, config['num_steps'], tau)
         if time_values is None or all_states is None:
             raise ValueError("Simulation failed")
 
