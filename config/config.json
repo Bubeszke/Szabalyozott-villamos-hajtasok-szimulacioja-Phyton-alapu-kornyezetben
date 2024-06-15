@@ -1,6 +1,6 @@
 {
   "env_id": "Cont-CC-PMSM-v0",
-  "num_steps": 100,
+  "num_steps": 1000,
   "supply": {
     "u_nominal": 400 
   },

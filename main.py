@@ -11,20 +11,27 @@ if(ERRORHANDLING_ON):
         # meas diff pred horizont
         time_values_ph = []
         all_states_ph =[]
-        num_of_meas = 10
+        num_of_meas = 3
         for i in range(num_of_meas):
             with open('config/config.json', 'r') as config_file:
                 config = json.load(config_file)
             print('CONFIG LOADED')
 
-            env = initialize_environment(config)
+
+            if(i == 0):
+                omega_fixed_temp = math.pi
+            if(i == 1):
+                omega_fixed_temp = 60
+            if(i == 2):
+                omega_fixed_temp = 360
+            env = initialize_environment(config, omega_fixed_temp)
             tau = env.physical_system.tau
-            print(tau)
             if not env:
-                raise ValueError("Failed to initialize the environment")
+                raise ValueError("Failed to initial ize the environment")
             print('initialize_environment')
 
-            Controller = MPC_Controller(env, tau, prediction_horizon= (i+2))
+
+            Controller = MPC_Controller(env, tau, prediction_horizon=2)
             if not Controller:
                 raise ValueError("Failed to initialize the controller")
             print('MPC_Controller')
