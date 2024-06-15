@@ -132,14 +132,3 @@ def plot_omega_torque_i_d_and_i_q_n_times(time_values_ph, all_states_ph, state_n
     plt.tight_layout()
     plt.show()
 
-
-import gym_electric_motor as gem
-
-env = gem.make('Cont-TC-PMSM-v0')  # PMSM motor with torque control
-
-initial_observation = env.reset()
-for _ in range(1000):  # Run for 1000 simulation steps
-    action = env.action_space.sample()  # Choose a random action
-    observation, reward, done, info = env.step(action)  # Take action
-    if done:
-        break  # End the loop if the environment indicates it's done
